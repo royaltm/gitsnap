@@ -1,6 +1,6 @@
 #!/bin/sh
 
-tarsnapcmd="`which tarnsap`"
+tarsnapcmd="`which tarsnap`"
 repo_name="`basename "$1" .git`"
 
 echo_stderr () {

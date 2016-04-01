@@ -1,6 +1,6 @@
 #!/bin/sh
 
-tarsnapcmd="`which tarnsap`"
+tarsnapcmd="`which tarsnap`"
 
 echo_stderr () {
   echo "$1" >&2

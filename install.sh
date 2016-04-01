@@ -4,7 +4,7 @@ source_dir="`dirname "$0"`"
 destination_dir="$1"
 
 gitcmd="`which git`"
-tarsnapcmd="`which tarnsap`"
+tarsnapcmd="`which tarsnap`"
 
 # Sanity
 

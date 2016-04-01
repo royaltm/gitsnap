@@ -6,7 +6,7 @@ repo_time="$2"
 repo_dir="${gitsnap_dir}/${repo_name}.git"
 post_receive_path="${gitsnap_dir}/post-receive.sh"
 gitcmd="`which git`"
-tarsnapcmd="`which tarnsap`"
+tarsnapcmd="`which tarsnap`"
 
 echo_stderr () {
   echo "$1" >&2
