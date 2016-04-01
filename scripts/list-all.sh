@@ -15,7 +15,7 @@ then
 fi
 
 list_all_tarsnap () {
-  "${tarsnapcmd}" --list-archives|grep -e '^git\..+\.[0-9]{8}-[0-9]{6}-[0-9]{9}$'|sort
+  "${tarsnapcmd}" --list-archives|grep -E -e '^git\..+\.[0-9]{8}-[0-9]{6}-[0-9]{9}$'|sort
 }
 
 list_all_repositories () {
