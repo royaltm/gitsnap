@@ -23,13 +23,13 @@ Step by step how to create repository storage with tarsnap backup
   Assuming the storage user is `git` and the repositories will reside under the `gitsnap` directory:
 
       sudo mkdir -p -m 700 /home/git/gitsnap
-      sudo chown git /home/git/gitsnap
+      sudo chown git:git /home/git/gitsnap
 
 4. Create write only key with no password for gitsnap
 
         sudo tarsnap-keymgmt --outkeyfile /home/git/.gitsnap.key -w /root/tarsnap.key
         sudo chmod 400 /home/git/.gitsnap.key
-        sudo chown git /home/git/.gitsnap.key
+        sudo chown git:git /home/git/.gitsnap.key
 
 5. Clone this repository and install gitsnap
 
@@ -65,7 +65,8 @@ Restoring repositories
 
 2. Recreate tarsnap state directory
 
-        sudo tarsnap --keyfile /root/tarsnap.key --fsck
+        sudo tarsnap --keyfile /root/tarsnap.key --cachedir /home/git/.gitsnap-cache --fsck
+        sudo chown -R git:git /home/git/.gitsnap-cache
 
 3. Follow steps 3, 4, 5 from the above guide.
 
