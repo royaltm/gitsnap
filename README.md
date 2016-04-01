@@ -47,7 +47,7 @@ Step by step how to create repository storage with tarsnap backup
 
   Assuming you have initialized local repository and added your ssh key to `/home/git/.ssh/authorized_keys`:
 
-      git remote add origin git@HOST_NAME:/gitsnap/your-repo-name.git
+      git remote add origin git@HOST_NAME:gitsnap/your-repo-name.git
       git push -u origin master
 
   This will push your data to gitsnap and run post-receive hook that will
