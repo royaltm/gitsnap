@@ -22,8 +22,8 @@ Step by step how to create repository storage with tarsnap backup
 
   Assuming the storage user is `git` and the repositories will reside under the `gitsnap` directory:
 
-        sudo mkdir -p -m 700 /home/git/gitsnap
-        sudo chown git /home/git/gitsnap
+      sudo mkdir -p -m 700 /home/git/gitsnap
+      sudo chown git /home/git/gitsnap
 
 4. Create write only key with no password for gitsnap
 
@@ -41,19 +41,19 @@ Step by step how to create repository storage with tarsnap backup
   This will create bare repository under the `/home/git/gitsnap/your-repo-name.git`.
   The `post-receive` hook of the created repository will be set to the gitsnap's `post-receive.sh`.
 
-       sudo -u git /home/git/gitsnap/create your-repo-name
+      sudo -u git /home/git/gitsnap/create your-repo-name
 
 7. You may push to the repository
 
   Assuming you have initialized local repository and added your ssh key to `/home/git/.ssh/authorized_keys`:
 
-       git remote add origin git@HOST_NAME:/gitsnap/your-repo-name.git
-        git push -u origin master
+      git remote add origin git@HOST_NAME:/gitsnap/your-repo-name.git
+      git push -u origin master
 
   This will push your data to gitsnap and run post-receive hook that will
   tarsnap your repository under the name:
 
-       git.your-repo-name.20160401-170239-320309908
+      git.your-repo-name.20160401-170239-320309908
 
   That is assuming the hook was run on 1st april 2016 at 17:02:39 and 320309908 ns.
 
@@ -82,7 +82,6 @@ Restoring repositories
   The last repository from before or equal to the given time will be restored.
 
 - Restore all repositories
-
 
        sudo /home/git/gitsnap/restore-all
 
