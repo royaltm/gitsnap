@@ -36,23 +36,28 @@ then
   exit 1
 fi
 
-install_scripts () {
-  local options="$*"
-  install $options "$source_dir"/scripts/post-receive.sh "$destination_dir"/            || exit 3
-  install $options "$source_dir"/scripts/create.sh       "$destination_dir"/create      || exit 3
-  install $options "$source_dir"/scripts/restore.sh      "$destination_dir"/restore     || exit 3
-  install $options "$source_dir"/scripts/restore-all.sh  "$destination_dir"/restore-all || exit 3
-  install $options "$source_dir"/scripts/list.sh         "$destination_dir"/list        || exit 3
-  install $options "$source_dir"/scripts/list-all.sh     "$destination_dir"/list-all    || exit 3
+install_script () {
+  echo "install $@"
+  install $@ || exit 3
+}
+
+install_all () {
+  local options="$@"
+  install_script $options "$source_dir"/scripts/post-receive.sh "$destination_dir"/
+  install_script $options "$source_dir"/scripts/create.sh       "$destination_dir"/create
+  install_script $options "$source_dir"/scripts/restore.sh      "$destination_dir"/restore
+  install_script $options "$source_dir"/scripts/restore-all.sh  "$destination_dir"/restore-all
+  install_script $options "$source_dir"/scripts/list.sh         "$destination_dir"/list
+  install_script $options "$source_dir"/scripts/list-all.sh     "$destination_dir"/list-all
 }
 
 if [ "`id -u`" != "0" ]
 then
-  install_scripts -m 700
+  install_all -m 700
 else
   LC_ALL=C ls -ld "$destination_dir" | {
     read -r perm links user group stuff || exit 3
 
-    install_scripts -o $user -g $group -m 700
+    install_all -o $user -g $group -m 700
   }
 fi
