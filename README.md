@@ -36,7 +36,7 @@ Step by step how to create repository storage with tarsnap backup
         git clone https://github.com/royaltm/gitsnap.git .gitsnap
         sudo -u git .gitsnap/install.sh /home/git/gitsnap
 
-6. Creating gitnsap repository
+6. Creating gitsnap repository
 
   This will create bare repository under the `/home/git/gitsnap/your-repo-name.git`.
   The `post-receive` hook of the created repository will be set to the gitsnap's `post-receive.sh`.
