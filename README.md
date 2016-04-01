@@ -6,7 +6,9 @@ Step by step how to create repository storage with tarsnap backup
 -----------------------------------------------------------------
 
 1. Get [Tarsnap](https://www.tarsnap.com/gettingstarted.html)
-2. Create key for a gitsnap machine - the key will be shared for all tarsnap backups on this machine
+2. Create key for a gitsnap machine
+
+  The key will be shared for all tarsnap backups on this machine.
 
       sudo tarsnap-keygen --keyfile /root/tarsnap.key --user YOUR_TARSNAP_USERNAME --machine MACHINE_NAME --passphrased
       sudo chmod 400 /root/tarsnap.key
@@ -25,21 +27,23 @@ Step by step how to create repository storage with tarsnap backup
 
 4. Create write only key with no password for gitsnap
 
+
       sudo tarsnap-keymgmt --outkeyfile /home/git/.gitsnap.key -w /root/tarsnap.key
       sudo chmod 400 /home/git/.gitsnap.key
       sudo chown git /home/git/.gitsnap.key
 
 5. Clone this repository and install gitsnap
 
+
       git clone https://github.com/royaltm/gitsnap.git .gitsnap
       sudo -u git .gitsnap/install.sh /home/git/gitsnap
 
 6. Creating gitnsap repository
 
-      sudo -u git /home/git/gitsnap/create your-repo-name
-
   This will create bare repository under the `/home/git/gitsnap/your-repo-name.git`.
   The `post-receive` hook of the created repository will be set to the gitsnap's `post-receive.sh`.
+
+      sudo -u git /home/git/gitsnap/create your-repo-name
 
 7. You may push to the repository
 
