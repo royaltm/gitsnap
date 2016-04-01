@@ -32,7 +32,7 @@ fi
 
 if [ -z "$repo_name" ]
 then
-  echo_stderr "Usage: $0 new-repository-name"
+  echo_stderr "Usage: $0 repository-name"
   exit 1
 fi
 
@@ -43,7 +43,7 @@ then
 fi
 
 list_all_reversed () {
-  local name="git.${repository_name}."
+  local name="git.${repo_name}."
   "${tarsnapcmd}" --list-archives|grep -F -e "$name"|grep -E -e '^git\..+\.[0-9]{8}-[0-9]{6}-[0-9]{9}$'|sort -r
 }
 
