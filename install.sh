@@ -36,9 +36,13 @@ then
   exit 1
 fi
 
-install -m 700 "$source_dir"/scripts/post-receive.sh "$destination_dir"/ && \
-install -m 700 "$source_dir"/scripts/create.sh       "$destination_dir"/create && \
-install -m 700 "$source_dir"/scripts/restore.sh      "$destination_dir"/restore && \
-install -m 700 "$source_dir"/scripts/restore-all.sh  "$destination_dir"/restore-all && \
-install -m 700 "$source_dir"/scripts/list.sh         "$destination_dir"/list && \
-install -m 700 "$source_dir"/scripts/list-all.sh     "$destination_dir"/list-all || exit 3
+LC_ALL=C ls -l "$destination_dir" | read -r perm links user group stuff || exit 5
+
+options=-u $user -g $group -m 700
+
+install $options "$source_dir"/scripts/post-receive.sh "$destination_dir"/            || exit 3
+install $options "$source_dir"/scripts/create.sh       "$destination_dir"/create      || exit 3
+install $options "$source_dir"/scripts/restore.sh      "$destination_dir"/restore     || exit 3
+install $options "$source_dir"/scripts/restore-all.sh  "$destination_dir"/restore-all || exit 3
+install $options "$source_dir"/scripts/list.sh         "$destination_dir"/list        || exit 3
+install $options "$source_dir"/scripts/list-all.sh     "$destination_dir"/list-all    || exit 3

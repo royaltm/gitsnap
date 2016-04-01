@@ -34,7 +34,7 @@ Step by step how to create repository storage with tarsnap backup
 5. Clone this repository and install gitsnap
 
         git clone https://github.com/royaltm/gitsnap.git .gitsnap
-        sudo -u git .gitsnap/install.sh /home/git/gitsnap
+        sudo .gitsnap/install.sh /home/git/gitsnap
 
 6. Creating gitsnap repository
 
