@@ -10,8 +10,8 @@ Step by step how to create repository storage with tarsnap backup
 
   The key will be shared for all tarsnap backups on this machine.
 
-        sudo tarsnap-keygen --keyfile /root/tarsnap.key --user YOUR_TARSNAP_USERNAME --machine MACHINE_NAME --passphrased
-        sudo chmod 400 /root/tarsnap.key
+      sudo tarsnap-keygen --keyfile /root/tarsnap.key --user YOUR_TARSNAP_USERNAME --machine MACHINE_NAME --passphrased
+      sudo chmod 400 /root/tarsnap.key
 
   __IMPORTANT!__
 
@@ -77,22 +77,22 @@ Restoring repositories
 
 - Restore single repository from before given time
 
-       sudo /home/git/gitsnap/restore your-repo-name 20160401-17
+        sudo /home/git/gitsnap/restore your-repo-name 20160401-17
 
   The last repository from before or equal to the given time will be restored.
 
 - Restore all repositories
 
-       sudo /home/git/gitsnap/restore-all
+        sudo /home/git/gitsnap/restore-all
 
 - List all repositories
 
-       sudo /home/git/gitsnap/list-all
+        sudo /home/git/gitsnap/list-all
 
 - List all repositories' tarsnaps
 
-       sudo /home/git/gitsnap/list-all --tarsnaps
+        sudo /home/git/gitsnap/list-all --tarsnaps
 
 - List single repository tarsnaps
 
-       sudo /home/git/gitsnap/list your-repo-name
+        sudo /home/git/gitsnap/list your-repo-name
