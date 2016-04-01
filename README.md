@@ -93,6 +93,10 @@ Restoring repositories
 
         sudo /home/git/gitsnap/list-all --tarsnaps
 
-- List single repository tarsnaps
+- List single repository last tarsnap
 
         sudo /home/git/gitsnap/list your-repo-name
+
+- List single repository tarsnaps
+
+        sudo /home/git/gitsnap/list your-repo-name --all
