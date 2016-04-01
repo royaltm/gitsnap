@@ -16,7 +16,7 @@ gitsnap () {
   suffix=`date +%Y%m%d-%H%M%S-%N`
   tarsnapfile="git.${repo_name}.${suffix}"
   echo "---"
-  echo "$tarsnapfile"
+  echo "tarsnap -f $tarsnapfile"
   "${tarsnapcmd}" -c --keyfile "$tarsnapkey" --cachedir "$tarsnapcache" --print-stats \
     -f "${tarsnapfile}" \
     -C "${repo_dir}/.." \
