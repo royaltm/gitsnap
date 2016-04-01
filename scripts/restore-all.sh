@@ -17,5 +17,6 @@ fi
 "${listallcmd}"| \
 while read -r repo_name
 do
-  "${restorecmd}" "$repo_name" || exit $?
+  echo "Restoring '$repo_name'"
+  "${restorecmd}" "$repo_name"
 done
