@@ -50,7 +50,7 @@ if [ "`id -u`" != "0" ]
 then
   install_scripts -m 700
 else
-  LC_ALL=C ls -l "$destination_dir" | {
+  LC_ALL=C ls -ld "$destination_dir" | {
     read -r perm links user group stuff || exit 3
 
     install_scripts -o $user -g $group -m 700

@@ -76,7 +76,7 @@ fi
 echo "Restoring '${archive_name}' to '${repo_dir}'"
 "${tarsnapcmd}" -x -f "$archive_name" -p -o -C "$gitsnap_dir" || exit 4
 ln -fs "../../post-receive.sh" "$repo_dir"/hooks/post-receive || exit 5
-LC_ALL=C ls -l "$gitsnap_dir" | {
+LC_ALL=C ls -ld "$gitsnap_dir" | {
   read -r perm links user group stuff || exit 5
   chown -R -- "$user:$group" "$repo_dir" || exit 6
 }
